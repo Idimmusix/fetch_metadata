@@ -166,7 +166,7 @@ REST_FRAMEWORK = {
     ],
 }
 LOGIN_REDIRECT_URL = "dashboard"
-LOGOUT_REDIRECT_URL = "home"
+# LOGOUT_REDIRECT_URL = "home"
 
 # Configure Django App for Heroku
 if DEBUG is False:
@@ -223,5 +223,5 @@ else:
     
 django_on_heroku.settings(locals())
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
