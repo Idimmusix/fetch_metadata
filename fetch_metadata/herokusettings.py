@@ -226,7 +226,4 @@ else:
         DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
-# django_celery/settings.py
-# Celery settings
-# CELERY_BROKER_URL = "redis://localhost:6379"
-# CELERY_RESULT_BACKEND = "redis://localhost:6379"
+
