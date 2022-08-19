@@ -27,7 +27,7 @@ content_types = [
     'text/csv',
     'audio/webm',
     ]
-max_upload_size = 5242880 #50mb
+max_upload_size = 5120000 #50mb
 
 def user_directory_path(instance, filename):
     """Creates a path for the user which is only accessible by the user
