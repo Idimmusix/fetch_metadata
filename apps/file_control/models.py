@@ -107,13 +107,19 @@ def save_meta_file(sender,**kwargs):
     # file_instance = kwargs["instance"].file.path
     # create_meta_file(file_instance)
     file_ext = ".mttrck" #metatrack file extension for saving metadata
-    root_file_name = os.path.splitext(file_instance)[0] #file name without extension
+    
+   
+    root_file_name = os.path.splitext(file_instance)[0] #file path without extension
 
 
-    output_file = root_file_name+file_ext #join the rootname and extension
+    #join the rootname and extension
+    basename=slugify(os.path.basename(root_file_name)) #prints just the basename
+
+    directory=os.path.dirname(root_file_name)
+    output_file = directory+basename+file_ext
     media_path = settings.MEDIA_ROOT #get the media root
     final_output = os.path.relpath(output_file,media_path) #get the relative path
-    output_file = slugify(output_file)
+    
 
     # File.objects.filter(id=file_main.id).update(meta_file=str(final_output))
     file_main.meta_file=(output_file)
