@@ -1,6 +1,7 @@
 import os
 from time import sleep
 from django.core.files import File
+from django.template.defaultfilters import slugify
 import subprocess
 
 
@@ -10,6 +11,7 @@ def create_meta_file(input_file):
     root_file_name = os.path.splitext(input_file)[0] #file name without extension
 
     output_file = str(root_file_name) + str(file_ext)
+    output_file = slugify(output_file)
 
     with open(output_file, "wb") as output:
         """

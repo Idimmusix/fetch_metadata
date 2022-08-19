@@ -4,6 +4,7 @@ from django.core.files import File as Filer
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django.dispatch import receiver
+from django.template.defaultfilters import slugify
 from django.conf import settings
 from django.db.models.signals import pre_save, post_save
 from .tasks import create_metadata
@@ -112,6 +113,7 @@ def save_meta_file(sender,**kwargs):
     output_file = root_file_name+file_ext #join the rootname and extension
     media_path = settings.MEDIA_ROOT #get the media root
     final_output = os.path.relpath(output_file,media_path) #get the relative path
+    output_file = slugify(output_file)
 
     # File.objects.filter(id=file_main.id).update(meta_file=str(final_output))
     file_main.meta_file=(output_file)
