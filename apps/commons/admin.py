@@ -15,9 +15,7 @@ class PostAdmin (admin.ModelAdmin):
             'fields': ('title','title_tag', )}),
             ('Blog Post', {
                 'fields': ('body',)}),
-                ('Permissions', {
-                    'fields': ('add_post', 'change_post', 'view_post', 'delete_posts', 'list_posts', 'groups', 'user_permissions')}),
-                    )
+                                    )
     add_fieldsets = (
         (None, {
             'classes': ('wide', ),
