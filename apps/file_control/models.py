@@ -41,7 +41,7 @@ def user_directory_path(instance, filename):
     
 
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return f'user_{instance.user.id}/{instance.file_ext()}/{fileroot}{file_ext}'
+    return f'user_{instance.user.id}/{instance.file_ext()}/{file_root}{file_ext}'
 class File(models.Model):
 
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE) #the user object that owns  file
