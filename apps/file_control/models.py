@@ -124,7 +124,7 @@ def save_meta_file(sender,**kwargs):
 
     # File.objects.filter(id=file_main.id).update(meta_file=str(final_output))
     file_main.meta_file=(output_file)
-    file_main.file = slugify(str(file_main.file))
+   
 
     # create_meta_file(str(os.path.join(media_path,output_file)))
 

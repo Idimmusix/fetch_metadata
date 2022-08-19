@@ -5,6 +5,7 @@ from django.views.generic import CreateView,ListView, DetailView
 from django.http import JsonResponse
 from django.core import serializers
 from django.http import HttpResponse, FileResponse
+from django.template.defaultfilters import slugify
 from .forms import FileUploadForm
 from .models import File
 from .tasks import create_metadata
@@ -56,6 +57,7 @@ class FileCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.user = self.request.user
+        self.object.file = slugify(self.request.file)
         
 
         # get the instance of the file that will be used to create the metadata
