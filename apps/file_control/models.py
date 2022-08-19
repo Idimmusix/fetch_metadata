@@ -116,7 +116,7 @@ def save_meta_file(sender,**kwargs):
     basename=slugify(os.path.basename(root_file_name)) #prints just the basename
 
     directory=os.path.dirname(root_file_name)
-    output_file = directory+basename+file_ext
+    output_file = directory+"/"+basename+file_ext
     media_path = settings.MEDIA_ROOT #get the media root
     final_output = os.path.relpath(output_file,media_path) #get the relative path
     

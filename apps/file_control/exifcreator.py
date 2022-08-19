@@ -14,7 +14,7 @@ def create_meta_file(input_file):
 
     directory=os.path.dirname(root_file_name)
 
-    output_file = str(directory) + str(basename) +str(file_ext)
+    output_file = str(directory) + "/"+str(basename) +str(file_ext)
 
     with open(output_file, "wb") as output:
         """
