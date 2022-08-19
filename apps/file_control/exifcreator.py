@@ -10,11 +10,12 @@ def create_meta_file(input_file):
     file_ext = ".mttrck" #metatrack file extension for saving metadata
     root_file_name = os.path.splitext(input_file)[0] #file name without extension
 
-    basename=slugify(os.path.basename(root_file_name)) #prints just the basename
+    basename = slugify(os.path.basename(root_file_name)) #prints just the basename
+    print(f"basename: {basename}")
 
     directory=os.path.dirname(root_file_name)
 
-    output_file = str(directory) + "/"+str(basename) +str(file_ext)
+    output_file = str(directory) + "/" + str(basename) +str(file_ext)
 
     with open(output_file, "wb") as output:
         """
