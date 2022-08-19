@@ -36,10 +36,12 @@ def user_directory_path(instance, filename):
         instance of type (CustomUser): The user that owns this file
         filename (name of file)): The name given to this file by our system
     """
-    filename=slugify(filename)
+    file_root= slugify(os.path.splitext(filename)[0])
+    file_ext = os.path.splitext(filename)[1]
+    
 
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return f'user_{instance.user.id}/{instance.file_ext()}/{filename}'
+    return f'user_{instance.user.id}/{instance.file_ext()}/{fileroot}{file_ext}'
 class File(models.Model):
 
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE) #the user object that owns  file
