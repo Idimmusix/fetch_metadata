@@ -36,6 +36,7 @@ def user_directory_path(instance, filename):
         instance of type (CustomUser): The user that owns this file
         filename (name of file)): The name given to this file by our system
     """
+    filename=slugify(filename)
 
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     return f'user_{instance.user.id}/{instance.file_ext()}/{filename}'
@@ -114,7 +115,7 @@ def save_meta_file(sender,**kwargs):
 
 
     #join the rootname and extension
-    basename=slugify(os.path.basename(root_file_name)) #prints just the basename
+    basename=os.path.basename(root_file_name) #prints just the basename
 
     directory=os.path.dirname(root_file_name)
     output_file = directory+"/"+basename+file_ext

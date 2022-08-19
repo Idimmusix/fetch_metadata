@@ -57,9 +57,7 @@ class FileCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.user = self.request.user
-        print(self.file)
-        self.file = slugify(self.request.file)
-        
+
 
         # get the instance of the file that will be used to create the metadata
         # model_instance = File.objects.first().file
